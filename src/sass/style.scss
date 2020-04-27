@@ -6,3 +6,79 @@
 @import "buttons";
 @import "variables";
 
+//fonts
+@font-face {
+  font-family: "Gotham Pro";
+  font-weight: normal;
+  src: url("../fonts/GOTHAPROLIG.OTF") format("opentype");
+}
+@font-face {
+  font-family: "Gotham Pro";
+  font-weight: bold;
+  src: url("../fonts/GOTHAPROBOL.OTF") format("opentype");
+}
+
+//Base styles
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Gotham Pro", sans-serif;
+  font-style: normal;
+  background-color: $color-white;
+  @media (min-width: 576px) {
+
+  }
+}
+
+h1 {
+  color: $color-white;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 50px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  @media (min-width: 576px) {
+
+  }
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+section {
+  background-size: cover;
+  background-position: center;
+}
+
+.blackSection {
+  background-color: $color-darkgray;
+  p {
+    color: $color-white;
+    text-transform: uppercase;
+    padding-right: 10%;
+  }
+}
+//Base styles end
+
+// main section start
+.main {
+  h1 {
+    margin: 36px 0;
+  }
+  p {
+    margin-bottom: 53px;
+    line-height: 40px;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+  }
+  img {
+    height: 100%;
+  }
+}
