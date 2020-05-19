@@ -61,7 +61,7 @@ section {
   p {
     color: $color-white;
     text-transform: uppercase;
-    padding-right: 10%;
+
   }
 }
 //Base styles end
@@ -69,16 +69,93 @@ section {
 // main section start
 .main {
   h1 {
-    margin: 36px 0;
+    margin: 60px 0 36px;
   }
   p {
+    padding-right: 10%;
     margin-bottom: 53px;
     line-height: 40px;
     font-weight: 300;
     font-size: 18px;
     letter-spacing: 0.15em;
+    font-weight: 200;
   }
   img {
     height: 100%;
+  }
+  button {
+    @include button;
+    padding: 20px 78px;
+    margin-bottom: 60px;
+  }
+}
+
+// main section end
+
+// services section start
+.services {
+  position: relative;
+  padding-top: 62px;
+  //img, p {
+  //  display: inline-block;
+  //}
+  div.row {
+    margin-bottom: 64px;
+  }
+  p {
+    padding-left: 50px;
+    font-size: 18px;
+    line-height: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  img {
+    display: block;
+    position: static;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    @media (min-width: 768px) {
+      position: absolute;
+    }
+  }
+}
+
+// services section end
+
+// additionalCourse section start
+.additionalCourse {
+  padding-top: 58px;
+  p {
+    padding-right: 10%;
+    margin-top: 7px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 35px;
+  }
+  button {
+    @include button;
+    padding: 20px 78px;
+    margin-bottom: 60px;
+  }
+}
+
+// additionalCourse section end
+
+// askQuestion section start
+.askQuestion {
+  text-align: center;
+  padding-top: 47px;
+  p {
+    margin-bottom: 51px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 35px;
+    text-transform: capitalize;
+  }
+  button {
+    @include button;
+    padding: 20px 78px;
+    margin-bottom: 60px;
   }
 }
