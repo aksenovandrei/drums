@@ -7,8 +7,15 @@
   $.extend(true, Component.prototype, {
     init() {
       this.initializeSlider();
-      this.setImageToBakcground();
+      this.checkSliderType();
       this.$container.addClass('initialized');
+    },
+
+    checkSliderType() {
+      console.log(this.$container.hasClass('mixed-content'));
+      if (this.$container.hasClass('mixed-content')) {
+        this.setImageToBakcground();
+      }
     },
 
     setImageToBakcground() {

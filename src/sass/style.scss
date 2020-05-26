@@ -51,10 +51,16 @@ h1 {
 }
 
 h2 {
-  font-size: 30px;
-  text-align: left;
+  font-size: 13px;
+  text-align: center;
   text-transform: uppercase;
   font-weight: bold;
+  @media (min-width: 540px) {
+    font-size: 30px;
+  }
+  @media (min-width: 992px) {
+    text-align: left;
+  }
 }
 
 h3 {
@@ -67,7 +73,7 @@ h3 {
   margin-bottom: 15px;
   @media (min-width: 540px) {
     font-size: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   @media (min-width: 992px) {
     text-align: left;
@@ -77,6 +83,11 @@ h3 {
 section {
   background-size: cover;
   background-position: center;
+}
+
+.main-btn {
+  @include button;
+  margin: 0 auto;
 }
 
 .blackSection {
@@ -99,23 +110,41 @@ section {
     }
   }
   button {
-    @include button;
     padding: 20px 78px;
   }
 }
 //Base styles end
 
+//Mixins
+@mixin red-pillar {
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 105px;
+    right: -35px;
+    background: $color-red;
+    @media (min-width: 992px) {
+      width: 364px;
+    }
+  }
+}
+//Mixins end
+
 //header
 header {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
+  .logo {
+    position: absolute;
+    width: 78px;
+    height: 79px;
+  }
   .intro {
     margin-top: 30px;
+    align-items: center;
     @media (min-width: 992px) {
       margin-top: 0;
-    }
-    &-row {
-      align-items: center;
     }
     &-logo {
       padding: 0;
@@ -128,13 +157,17 @@ header {
         height: 79px;
         display: block;
         margin: 0 auto;
-        @media (min-width: 992px) {
+        @media (min-width: 540px) {
           width: 165px;
           height: 166px;
+        }
+        @media (min-width: 992px) {
+          margin: 0 auto 0 -20px;
         }
         @media (min-width: 1200px) {
           width: 214px;
           height: 216px;
+          margin: 0 auto 0 -50px;
         }
       }
     }
@@ -155,50 +188,50 @@ header {
       display: block;
     }
     &-social {
-      position: absolute;
-      padding: 0 50px;
-      width: 364px;
-      right: 100px;
+      order: 3;
       display: none;
       justify-content: space-around;
       @media (min-width: 992px) {
         display: flex;
       }
     }
-    .nav {
-      margin-bottom: 25px;
-      margin-top: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-left: 15px;
-      @media (min-width: 992px) {
-        display: block;
-        padding-left: 0;
-        margin-bottom: 50px;
+  }
+  .nav {
+    margin-bottom: 25px;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15px;
+    @media (min-width: 992px) {
+      display: block;
+      padding-left: 0;
+      margin-bottom: 50px;
+    }
+    &-item {
+      font-size: 13px;
+      text-transform: uppercase;
+      color: $color-darkgray-2;
+      padding-right: 15px;
+      margin-bottom: 10px;
+      @media (min-width: 540px) {
+        font-size: 19px;
       }
-      &-item {
-        font-size: 13px;
-        text-transform: uppercase;
-        color: $color-darkgray-2;
-        padding-right: 14px;
-        margin-bottom: 10px;
-        @media (min-width: 540px) {
-          font-size: 20px;
-        }
+      @media (min-width: 992px) {
+        margin-bottom: 0;
+      }
+      @media (min-width: 1200px) {
+        font-size: 20px;
+      }
+      &:hover,
+      &:active,
+      &:focus,
+      &:visited {
+        text-decoration: underline;
+      }
+      &:first-child {
         @media (min-width: 992px) {
-          margin-bottom: 0;
-        }
-        &:hover,
-        &:active,
-        &:focus,
-        &:visited {
-          text-decoration: underline;
-        }
-        &:first-child {
-          @media (min-width: 992px) {
-            color: $color-red;
-          }
+          color: $color-red;
         }
       }
     }
@@ -207,9 +240,16 @@ header {
 //header end
 
 // main section start
-.main,
-.slider {
+.main {
   position: relative;
+  &-image {
+    position: relative;
+    @include red-pillar;
+    &:after {
+      top: -9999px;
+      bottom: calc(-30px - #{$section-spacing});
+    }
+  }
   img {
     @media (min-width: 992px) {
       width: auto;
@@ -218,25 +258,178 @@ header {
       height: calc(100% + (#{$section-spacing} * 2));
     }
   }
-  &:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    bottom: -30px;
-    right: 0;
-    width: 105px;
-    height: 9999px;
-    background: $color-red;
-    @media (min-width: 992px) {
-      width: 364px;
-      right: 100px;
-    }
-  }
 }
 // main section end
 
+// services section start
+.services {
+  position: relative;
+  padding-top: 62px;
+  div.row {
+    margin-bottom: 64px;
+  }
+  p {
+    padding-left: 50px;
+    font-size: 18px;
+    line-height: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  img {
+    display: block;
+    position: static;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    @media (min-width: 768px) {
+      position: absolute;
+    }
+  }
+}
+// services section end
+
+// additionalCourse section start
+.additionalCourse {
+  position: relative;
+  &-video {
+    position: relative;
+    @include red-pillar;
+    &:after {
+      top: -65px;
+      bottom: -65px;
+    }
+  }
+  .iframe-wrapper {
+    position: relative;
+    padding-bottom: 45%;
+    width: 80%;
+    margin: 30px auto;
+    @media (min-width: 768px) {
+      padding-bottom: 33.75%;
+      width: 60%;
+    }
+    @media (min-width: 992px) {
+      margin: 50px auto 0 auto;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+// additionalCourse section end
+
+//Description
+.description {
+  padding-top: $section-spacing;
+  // padding-bottom: $section-spacing;
+  &:after {
+    bottom: auto;
+    top: -30px;
+    height: 1150px;
+  }
+  &-text {
+    padding: 15px 0 15px 15px;
+    @media (min-width: 540px) {
+      padding: 30px 0 30px 0;
+    }
+    h3 {
+      position: relative;
+      text-align: left;
+      margin-left: 15px;
+      @media (min-width: 540px) {
+        margin-left: 30px;
+      }
+      @media (min-width: 1200px) {
+        margin-left: 0;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -20px;
+        width: 11px;
+        height: 11px;
+        background-color: $color-red;
+        border-radius: 50%;
+        @media (min-width: 540px) {
+          width: 18px;
+          height: 18px;
+          left: -35px;
+          top: 10px;
+        }
+      }
+    }
+  }
+  &-image {
+    position: relative;
+    margin-bottom: 50px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    &.image-offset-left {
+      img {
+        @media (min-width: 1200px) {
+          transform: translateX(-80px);
+        }
+      }
+    }
+    &.image-offset-right {
+      img {
+        @media (min-width: 1200px) {
+          transform: translateX(80px);
+        }
+      }
+    }
+  }
+  .pillar-container {
+    position: relative;
+    @include red-pillar;
+    &:after {
+      top: -30px;
+      bottom: 0;
+    }
+    &-alt {
+      &:after {
+        right: auto;
+        left: -25px;
+        top: -70px;
+        bottom: -50px;
+      }
+    }
+  }
+}
+//Description end
+
+// askQuestion section start
+.askQuestion {
+  text-align: center;
+  padding-top: 47px;
+  p {
+    margin-bottom: 51px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 35px;
+    text-transform: capitalize;
+  }
+  button {
+    @include button;
+    padding: 20px 78px;
+    margin-bottom: 60px;
+  }
+}
+
 //Slider
 .slider {
+  &.slick-dotted {
+    margin-bottom: 50px;
+  }
   &-text {
     margin-top: 30px;
     @media (min-width: 540px) {
@@ -248,9 +441,27 @@ header {
       padding-right: 100px;
     }
   }
-  &-image {
-    img {
-      display: none;
+  &.mixed-content {
+    .slider-image {
+      img {
+        display: none;
+      }
+    }
+  }
+  .slick-slide > div {
+    width: 100%;
+  }
+  &.image-content {
+    .slider-image {
+      height: 100%;
+      width: auto;
+      img {
+        width: 100%;
+        margin: 0 auto;
+        @media (min-width: 768px) {
+          width: 80%;
+        }
+      }
     }
   }
 }
@@ -275,62 +486,6 @@ header {
         color: $color-red;
       }
     }
-  } 
+  }
 }
 //Slider end
-
-// services section start
-.services {
-  position: relative;
-  padding-top: 62px;
-  //img, p {
-  //  display: inline-block;
-  //}
-  div.row {
-    margin-bottom: 64px;
-  }
-  p {
-    padding-left: 50px;
-    font-size: 18px;
-    line-height: 12px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-  img {
-    display: block;
-    position: static;
-    top: 0;
-    left: 0;
-    margin: 0 auto;
-    @media (min-width: 768px) {
-      position: absolute;
-    }
-  }
-}
-
-// services section end
-
-// additionalCourse section start
-.additionalCourse {
-  padding-top: 58px;
-}
-
-// additionalCourse section end
-
-// askQuestion section start
-.askQuestion {
-  text-align: center;
-  padding-top: 47px;
-  p {
-    margin-bottom: 51px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 35px;
-    text-transform: capitalize;
-  }
-  button {
-    @include button;
-    padding: 20px 78px;
-    margin-bottom: 60px;
-  }
-}
