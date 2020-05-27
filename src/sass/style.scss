@@ -358,6 +358,9 @@ header {
     @media (min-width: 540px) {
       padding: 0 0 $section-spacing 0;
     }
+    h3 {
+      text-align: left;
+    }
     p {
       margin-bottom: 15px;
       @media (min-width: 540px) {
@@ -446,6 +449,9 @@ header {
   padding-top: $section-spacing;
   padding-bottom: $section-spacing;
   margin-top: $section-spacing * 2;
+  &.mobile-pillar:after {
+    bottom: 0;
+  }
   @media (min-width: 1200px) {
     margin-top: 0;
   }
@@ -460,6 +466,23 @@ header {
     display: block;
   }
 }
+
+//Red pillar mobile
+.mobile-pillar {
+  position: relative;
+  @include red-pillar;
+  &:after {
+    top: 40px;
+    bottom: -150px;
+    right: 0;
+  }
+  @media (min-width: 992px) {
+    &:after {
+      display: none;
+    }
+  }
+}
+//Red pillar mobile end
 
 //Slider
 .slider {
@@ -482,6 +505,12 @@ header {
       img {
         display: none;
       }
+    }
+    @include red-pillar;
+    &:after {
+      bottom: -20px;
+      top: -9999px;
+      right: 0;
     }
   }
   .slick-slide > div {
