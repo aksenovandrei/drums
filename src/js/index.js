@@ -2,12 +2,12 @@
   const Component = function (container) {
     this.$container = $(container);
     this.imageSlide = this.$container.find('.slider-image');
-    this.slideToShow = 1;
+    this.videoSlider = false;
   };
 
   $.extend(true, Component.prototype, {
     init() {
-      this.configureVideSlider();
+      this.configureVideoSlider();
       this.initializeSlider();
       this.checkSliderType();
       this.$container.addClass('initialized');
@@ -19,24 +19,31 @@
       }
     },
 
-    configureVideSlider() {
+    configureVideoSlider() {
       if (this.$container.hasClass('video-slider')) {
-        this.slideToShow = 2;
+        this.videoSlider = true;
       }
     },
 
     setImageToBakcground() {
       this.imageSlide.each((index, item) => {
         const imagePath = $(item).find('img')[0].src;
+        console.log(imagePath)
         $(item).closest('.slick-slide').css('background-image', `url("${imagePath}")`)
       })
     },
 
     initializeSlider() {
-      // console.log(this.slideToShow);
-      this.$container.slick({
+      const options = {
         infinite: false,
         slidesToShow: this.slideToShow,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: true,
+      }
+      const VideoOptions = {
+        infinite: false,
+        slidesToShow: 2,
         slidesToScroll: 1,
         arrows: false,
         dots: false,
@@ -49,8 +56,9 @@
             }
           }
         ]
-      });
-
+      }
+      
+      this.$container.slick(this.videoSlider ? VideoOptions : options);
     },
   });
   const $component = $('.slider:not(.initialized)');

@@ -146,7 +146,6 @@ section {
 //header
 header {
   position: relative;
-  // overflow: hidden;
   .logo {
     position: absolute;
     width: 78px;
@@ -266,8 +265,16 @@ header {
   }
   img {
     @media (min-width: 992px) {
-      width: auto;
       position: absolute;
+      width: 100%;
+      height: auto;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    @media (min-width: 1200px) {
+      margin: 0;
+      width: auto;
       top: -$section-spacing;
       height: calc(100% + (#{$section-spacing} * 2));
     }
