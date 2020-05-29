@@ -144,7 +144,6 @@ section {
 //Mixins end
 
 //To top button 
-
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -187,6 +186,7 @@ section {
     margin: auto;
   }
 }
+//To top button end
 
 //header
 header {
@@ -545,7 +545,10 @@ header {
 
 //Feedback
 .feedback {
-  padding-top: $section-spacing * 2;
+  padding-top: $section-spacing / 2;
+  @media (min-width: 992px) {
+    padding-top: $section-spacing * 2;
+  }
   padding-bottom: $section-spacing;
   overflow-x: hidden;
   .slider {
@@ -558,6 +561,50 @@ header {
   }
 }
 //Feedback end
+
+//Map
+.map {
+  padding-top: 0;
+  padding-bottom: 0;
+  &-text {
+    padding-top: $section-spacing;
+    padding-bottom: $section-spacing;
+    h3 {
+      text-align: left;
+    }
+    p {
+      text-transform: none;
+      margin-bottom: 0;
+    }
+  }
+}
+//Map end
+
+//Footer
+footer {
+  background-color: $color-darkgray;
+  padding-top: $section-spacing;
+  padding-bottom: $section-spacing * 2;
+  margin-top: $section-spacing;
+  .social {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $section-spacing;
+    a {
+      transition: transform .2s; 
+      &:hover {
+        @media (min-width: 992px) {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .number {
+    color: $color-white;
+    text-align: center;
+  }
+}
+//Footer end
 
 //Red pillar mobile
 .mobile-pillar {
