@@ -57,7 +57,7 @@
           }
         ]
       }
-      
+
       this.$container.slick(this.videoSlider ? VideoOptions : options);
     },
   });
@@ -70,9 +70,56 @@
   });
 }(jQuery));
 
-const $showButton = $('.show-btn');
 
-$('.show-btn').on('click', function () {
-  $('.hidden-text').slideDown();
-  $('.show-btn').hide();
-})
+(function ($) {
+  const $showBtn = $('.show-btn');
+  $showBtn.on('click', function () {
+    $('.hidden-text').slideDown();
+    $showBtn.hide();
+  })
+}(jQuery));
+
+(function ($) {
+  const Component = function (container) {
+    this.$container = $(container);
+  };
+
+  $.extend(true, Component.prototype, {
+    init() {
+      this._bindInteractions();
+      this.$container.addClass('initialized');
+    },
+
+    _scrollTo() {
+      event.preventDefault();
+      event.stopPropagation();
+      const targetSection = this.$container.attr('href');
+      console.log(this.$container.attr('href'));
+      $('html, body').animate({
+        scrollTop: $(`.${targetSection}`).offset().top
+      }, 500);
+    },
+
+    checkScrollValue() {
+      const scrollTop = $(window).scrollTop();
+      const $toTopBtn = $('.toTop');
+      if (scrollTop > 800) {
+        $toTopBtn.fadeIn(200);
+      } else {
+        $toTopBtn.fadeOut(200);
+      }
+    },
+
+    _bindInteractions() {
+      this.$container.on('click', this._scrollTo.bind(this));
+      $(window).scroll(this.checkScrollValue.bind(this));
+    },
+  });
+  const $component = $('.scroll-button:not(.initialized)');
+  let instance;
+
+  $component.each((i, item) => {
+    instance = new Component(item);
+    instance.init();
+  });
+}(jQuery));

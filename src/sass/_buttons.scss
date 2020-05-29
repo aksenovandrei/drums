@@ -17,5 +17,11 @@
     line-height: 29px;
     height: 70px;
   }
+  @media (min-width: 992px) {
+    transition: background-color .2s;
+    &:hover {
+      background-color: lighten($color: $color-red, $amount: 25%);
+    }
+  }
 
 }
