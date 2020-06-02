@@ -584,8 +584,11 @@ header {
 footer {
   background-color: $color-darkgray;
   padding-top: $section-spacing;
-  padding-bottom: $section-spacing * 2;
-  margin-top: $section-spacing;
+  padding-bottom: 0;
+  @media (min-width: 992px) {
+    padding-bottom: $section-spacing;
+    margin-top: $section-spacing;
+  }
   .social {
     display: flex;
     justify-content: space-between;
@@ -598,10 +601,25 @@ footer {
         }
       }
     }
+    &-mobile {
+      flex-wrap: wrap;
+      a {
+        width: 50%;
+        margin-bottom: 50px;
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
   }
   .number {
     color: $color-white;
     text-align: center;
+    margin: 30px auto 60px;
+    @media (min-width: 992px) {
+      margin: 0 auto inherit auto;
+    }
   }
 }
 //Footer end
@@ -725,6 +743,62 @@ footer {
   }
 }
 //Slider end
+
+//Modal
+.modal {
+  &-dialog {
+    max-width: 620px;
+  }
+  &-header {
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    @media (min-width: 768px) {
+      padding: 1rem;
+    }
+  }
+  &-body {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    @media (min-width: 768px) {
+      padding-left: 90px;
+      padding-right: 90px;
+      padding-bottom: 90px;
+    }
+  }
+  &-content {
+    background-color: $color-darkgray;
+    border-radius: 0;
+    .close {
+      color: $color-white;
+      opacity: 1;
+    }
+  }
+}
+//Modal end
+
+//Form
+.main-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  input {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    @media (min-width: 768px) {
+      margin-bottom: 60px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+  .main-btn {
+    margin: 0;
+  }
+}
+//Form end
 
 //Hiding text
 .hidden-text {
