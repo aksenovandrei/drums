@@ -1,13 +1,13 @@
 <?php
 //telegram
-$token = '1218435378:AAFLSFSHNzR4nObEnEEknE8yxWjayAzWFTo';  // token bot telegram
-$chat_id_list = ['-495360242']; // chat id telegram
+$token = '561353685:AAFVHFTMIychcLnJzi1MziPwGYng3tYHlqI';  // token bot telegram
+$chat_id_list = ['350981322']; // chat id telegram
 
 
 //mail
-$to = 'info@bossko.ru';
+$to = 'aksenov.andrew@gmail.com';
 
 
-$subjectOrder = 'Новая заявка с сайта!';
-$subjectCallback = 'Перезвоните мне!';
+$subjectOrder = 'Вопрос с сайта!';
+$subjectSingUp = 'Новая заявка с сайта!';
 

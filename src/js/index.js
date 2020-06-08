@@ -124,15 +124,15 @@
   });
 }(jQuery));
 
-$('#callback').on('submit', function () {
+$('#callbackForm').on('submit', function () {
   event.preventDefault();
-  const form = $('#callback').find('form')[0];
+  const form = $('#signUp').find('form')[0];
   const data = new FormData(form);
 
   $.ajax({
       type: "POST",
       enctype: 'multipart/form-data',
-      url: "callback.php",
+      url: "signup.php",
       data: data,
       processData: false,
       contentType: false,
@@ -141,20 +141,55 @@ $('#callback').on('submit', function () {
       success: function (data) {
           console.log("SUCCESS : ", data);
           const $modal = $('#success');
-          const $callbackModal = $('#callback');
+          const $signUp = $('#signUp');
           const result = $($modal[0]).find('.result');
           result.text(data);
-          $callbackModal.modal('hide');
+          $signUp.modal('hide');
           $modal.modal('show');
       },
       error: function (e) {
           console.log("ERROR : ", e);
           const $modal = $('#fail');
           const result = $($modal[0]).find('.result');
-          result.text('Произошла ошибка отправки формы. Свяжитесь с нами по телефону +7-9999-777-550');
+          result.text('Произошла ошибка отправки формы. Свяжитесь со мной по телефону +7-926-246-47-59');
           $modal.modal('show');
 
       }
+  });
+  return;
+})
+
+$('#askQuestionForm').on('submit', function () {
+  event.preventDefault();
+  const form = $('#askQuestion').find('form')[0];
+  const data = new FormData(form);
+
+  $.ajax({
+    type: "POST",
+    enctype: 'multipart/form-data',
+    url: "askquestion.php",
+    data: data,
+    processData: false,
+    contentType: false,
+    cache: false,
+    timeout: 800000,
+    success: function (data) {
+      console.log("SUCCESS : ", data);
+      const $modal = $('#success');
+      const $askQuestion = $('#askQuestion');
+      const result = $($modal[0]).find('.result');
+      result.text(data);
+      $askQuestion.modal('hide');
+      $modal.modal('show');
+    },
+    error: function (e) {
+      console.log("ERROR : ", e);
+      const $modal = $('#fail');
+      const result = $($modal[0]).find('.result');
+      result.text('Произошла ошибка отправки формы. Свяжитесь со мной по телефону +7-926-246-47-59');
+      $modal.modal('show');
+
+    }
   });
   return;
 })

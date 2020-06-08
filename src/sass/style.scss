@@ -778,6 +778,18 @@ footer {
       padding-left: 90px;
       padding-right: 90px;
       padding-bottom: 90px;
+      .image-success {
+        width: 56px;
+        display: block;
+        margin: 16px auto;
+      }
+      .result {
+        text-align: center;
+        color: $color-white;
+      }
+    }
+    textarea {
+      margin-bottom: 60px;
     }
   }
   &-content {

@@ -1,3 +1,4 @@
+<!--signup-->
 <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="signUp" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -7,10 +8,79 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="main-form" action="callback.php" method="post" id="callbackForm">
+                <form class="main-form" action="signup.php" method="post" id="callbackForm">
                     <input class="" type="text" name="name" placeholder="ВАШЕ ИМЯ">
                     <input class="phone_mask" type="text" name="tel" placeholder="+7 (---) --- -- --">
                     <button class="main-btn" type="submit" form="callbackForm">ЗАПИСАТЬСЯ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--buy course-->
+<div class="modal fade" id="buyCourse" tabindex="-1" role="dialog" aria-labelledby="signUp" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9A%D1%83%D1%80%D1%81%20%D0%A0%D0%98%D0%A2%D0%9C%D0%A1%D0%9E%D0%9B%D0%AC%D0%A4%D0%95%D0%94%D0%96%D0%98%D0%9E&targets-hint=&default-sum=10000&button-text=12&payment-type-choice=on&fio=on&phone=on&hint=&successURL=https%3A%2F%2Fdruminstructor.ru%2Fthanks&quickpay=shop&account=410013876993389"
+                        width="100%" height="222" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--success modal-->
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="signUp" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="img/success.png" alt="" class="image-success">
+                <p class="result"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--fail modal-->
+<div class="modal fade" id="fail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="img/error.png" alt="" class="image-success">
+                <p class="result"></p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">закрыть</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--askQuestion modal-->
+<div class="modal fade" id="askQuestion" tabindex="-1" role="dialog" aria-labelledby="signUp" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="main-form" action="askquestion.php" method="post" id="askQuestionForm">
+                    <input class="" type="text" name="name" placeholder="ВАШЕ ИМЯ">
+                    <input class="phone_mask" type="text" name="tel" placeholder="+7 (---) --- -- --">
+                    <textarea name="area" id="" cols="30" rows="5"></textarea>
+                    <button class="main-btn" type="submit" form="askQuestionForm">Отправить
                     </button>
                 </form>
             </div>
