@@ -52,7 +52,8 @@
             breakpoint: 992,
             settings: {
               slidesToShow: 1,
-              dots: true
+              dots: true,
+              arrows: true,
             }
           }
         ]
