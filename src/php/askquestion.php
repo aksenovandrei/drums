@@ -14,7 +14,7 @@ if (checkEmpty($data)) {
 
     sendMessageToTelegram($token, $chat_id_list, $message);
     sendMessageToMail($to, $subjectOrder, $message);
-    echo 'Ваша вопрос принят. Я с Вами свяжусь в ближайшее время';
+    echo 'Ваш вопрос принят. Я с Вами свяжусь в ближайшее время';
 } else {
     echo 'Что-то пошло не так. Проверьте правильнось введенных данных1';
 
