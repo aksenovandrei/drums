@@ -655,6 +655,7 @@ footer {
 //Red pillar mobile end
 
 //Slider
+$slick-arrow-size: 30px;
 .slider {
   &.slick-dotted {
     margin-bottom: 50px;
@@ -665,6 +666,35 @@ footer {
     }
     .slick-slide > div {
       padding: 0 45px;
+    }
+  }
+  .slick-arrow {
+    top: calc(100% + 20px);
+    height: $slick-arrow-size;
+    width: $slick-arrow-size;
+    z-index: 5;
+    &:before {
+      font-size: 0;
+    }
+    &.slick-prev {
+      left: 0;
+      &:before {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: ($slick-arrow-size / 2) $slick-arrow-size ($slick-arrow-size / 2) 0;
+        border-color: transparent $color-red transparent transparent;
+      }
+    }
+    &.slick-next {
+      right: 0;
+      &:before {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: ($slick-arrow-size / 2) 0 ($slick-arrow-size / 2) $slick-arrow-size;
+        border-color: transparent transparent transparent $color-red;
+      }
     }
   }
   &-text {
