@@ -91,13 +91,19 @@
       this.$container.addClass('initialized');
     },
 
-    _scrollTo() {
+    _scrollTo(event) {
       event.preventDefault();
       event.stopPropagation();
       const targetSection = this.$container.attr('href');
-      console.log(this.$container.attr('href'));
+      const targetElements = $(`.${targetSection}`);
+      let $elem;
+      if ($(targetElements[0]).is(':visible')) {
+        $elem = $(targetElements[0]);
+      } else {
+        $elem = $(targetElements[1]);
+      }
       $('html, body').animate({
-        scrollTop: $(`.${targetSection}`).offset().top
+        scrollTop: $elem.offset().top
       }, 500);
     },
 
