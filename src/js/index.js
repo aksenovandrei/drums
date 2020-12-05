@@ -151,6 +151,7 @@ $('#callbackForm').on('submit', function () {
           const $signUp = $('#signUp');
           const result = $($modal[0]).find('.result');
           result.text(data);
+          $(form).closest('.modal').modal('hide');
           $signUp.modal('hide');
           $modal.modal('show');
       },
@@ -158,6 +159,7 @@ $('#callbackForm').on('submit', function () {
           console.log("ERROR : ", e);
           const $modal = $('#fail');
           const result = $($modal[0]).find('.result');
+          $(form).closest('.modal').modal('hide');
           result.text('Произошла ошибка отправки формы. Свяжитесь со мной по телефону +7-926-246-47-59');
           $modal.modal('show');
 
@@ -186,6 +188,7 @@ $('#askQuestionForm').on('submit', function () {
       const $askQuestion = $('#askQuestion');
       const result = $($modal[0]).find('.result');
       result.text(data);
+      $(form).closest('.modal').modal('hide');
       $askQuestion.modal('hide');
       $modal.modal('show');
     },
@@ -193,6 +196,7 @@ $('#askQuestionForm').on('submit', function () {
       console.log("ERROR : ", e);
       const $modal = $('#fail');
       const result = $($modal[0]).find('.result');
+      $(form).closest('.modal').modal('hide');
       result.text('Произошла ошибка отправки формы. Свяжитесь со мной по телефону +7-926-246-47-59');
       $modal.modal('show');
 
